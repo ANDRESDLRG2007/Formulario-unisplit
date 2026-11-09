@@ -265,6 +265,78 @@
 			.hero__float--pizza { left: 3%; }
 			.hero__float--receipt { right: 2%; }
 		}
+		.hero::before { content: none; }
+		.signup { position: relative; }
+		.signup__row { position: relative; z-index: 0; }
+		.signup__row:focus-within { animation: signup-glow 2.2s ease-in-out infinite; }
+		.signup input { caret-color: var(--green-dark); }
+		.signup button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; transition: background .2s ease, transform .2s ease, box-shadow .2s ease, filter .2s ease; }
+		.signup button:hover:not(:disabled) { transform: translateY(-1px) scale(1.035); filter: brightness(1.06); }
+		.signup__button-label { position: relative; z-index: 1; }
+		.signup__spinner { display: none; width: 17px; height: 17px; flex: 0 0 auto; border: 2px solid rgba(16,14,64,.25); border-top-color: var(--navy); border-radius: 50%; animation: spin .7s linear infinite; }
+		.signup[data-state="loading"] .signup__spinner { display: inline-block; }
+		.signup__success { position: absolute; inset: 0; display: flex; align-items: center; gap: 16px; overflow: hidden; padding: 17px 22px; border: 1px solid rgba(78,194,110,.25); border-radius: 18px; background: linear-gradient(120deg, #fff 20%, #f5fbe4); box-shadow: 0 14px 36px rgba(16,14,64,.1); opacity: 0; transform: translateY(12px) scale(.97); transition: opacity .38s ease, transform .48s cubic-bezier(.2,.8,.2,1); pointer-events: none; }
+		.signup__success[hidden] { display: none; }
+		.signup__success.is-visible { opacity: 1; transform: translateY(0) scale(1); }
+		.signup__check { display: grid; width: 54px; height: 54px; flex: 0 0 auto; place-items: center; border-radius: 50%; color: #fff; background: var(--green-dark); box-shadow: 0 7px 18px rgba(34,136,73,.25); }
+		.signup__check svg { width: 29px; height: 29px; overflow: visible; }
+		.signup__check path { fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 24; stroke-dashoffset: 24; }
+		.signup__success.is-visible .signup__check path { animation: draw-check .55s .2s ease forwards; }
+		.signup__success-copy strong { display: block; margin-bottom: 4px; font: 700 20px/1.2 var(--display); }
+		.signup__success-copy span { display: block; color: var(--ink-soft); font-size: 12px; line-height: 1.5; }
+		.signup__spark { position: absolute; width: 7px; height: 7px; border-radius: 2px; background: var(--lime); opacity: 0; }
+		.signup__spark:nth-of-type(1) { top: 16px; left: 20px; }
+		.signup__spark:nth-of-type(2) { top: 23px; left: 77px; background: var(--green); }
+		.signup__spark:nth-of-type(3) { right: 25px; bottom: 17px; }
+		.signup__spark:nth-of-type(4) { top: 14px; right: 35px; width: 5px; height: 5px; background: var(--green); }
+		.signup__success.is-visible .signup__spark { animation: sparkle .75s ease-out both; }
+		.signup__success.is-visible .signup__spark:nth-of-type(2) { animation-delay: .12s; }
+		.signup__success.is-visible .signup__spark:nth-of-type(3) { animation-delay: .22s; }
+		.signup__success.is-visible .signup__spark:nth-of-type(4) { animation-delay: .08s; }
+		.signup[data-state="success"] { min-height: 92px; }
+		.signup[data-state="success"] .signup__content { max-height: 0; overflow: hidden; opacity: 0; transform: translateY(-8px); transition: max-height .35s ease, opacity .22s ease, transform .28s ease; pointer-events: none; }
+		.signup__content { max-height: 320px; opacity: 1; transition: max-height .35s ease, opacity .22s ease, transform .28s ease; }
+		.signup__content[hidden] { display: none; }
+		.hero__phone { position: relative; z-index: 1; animation: phone-arrive .9s .12s cubic-bezier(.2,.8,.2,1) both; }
+		.hero__visual img { animation: phone-float 5.5s 1.1s ease-in-out infinite; }
+		.hero__float { animation: bob 4s ease-in-out infinite; }
+		.hero__float--pizza { animation-delay: -.4s; }
+		.hero__float--receipt { animation-delay: -1.6s; }
+		.hero__float--money { animation-delay: -2.7s; }
+		.hero__float--smile { animation-delay: -3.4s; }
+		.hero__wave path { animation: wave-shift 9s ease-in-out infinite alternate; }
+		.benefit-card { border-color: rgba(255,255,255,.82); background: rgba(255,255,255,.78); box-shadow: 0 14px 38px rgba(16,14,64,.07); backdrop-filter: blur(14px); }
+		.benefit-card:hover { transform: translateY(-7px); }
+		.step { border: 0; background: transparent; }
+		.step__visual, .step:nth-child(2) .step__visual, .step:nth-child(3) .step__visual { overflow: visible; background: transparent; }
+		.step__visual img { width: min(58%, 210px); max-height: 280px; border-width: 0; border-radius: 28px; box-shadow: 0 18px 40px rgba(16,14,64,.18); }
+		.closing__link { transition: transform .2s ease, box-shadow .2s ease, filter .2s ease; }
+		.closing__link:hover { transform: translateY(-2px) scale(1.035); filter: brightness(1.15); }
+		.has-reveal .benefit-card, .has-reveal .step__copy, .has-reveal .step__visual { opacity: 0; transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); }
+		.has-reveal .benefit-card { transform: translateY(22px); }
+		.has-reveal .step__copy { transform: translateX(-35px); }
+		.has-reveal .step__visual { transform: translateX(35px); }
+		.has-reveal .step:nth-child(even) .step__copy { transform: translateX(35px); }
+		.has-reveal .step:nth-child(even) .step__visual { transform: translateX(-35px); }
+		.has-reveal .benefit-card.is-visible, .has-reveal .step__copy.is-visible, .has-reveal .step__visual.is-visible { opacity: 1; transform: translate(0); }
+		.has-reveal .benefit-card:nth-child(2) { transition-delay: .12s; }
+		.has-reveal .benefit-card:nth-child(3) { transition-delay: .24s; }
+		@keyframes signup-glow { 0%, 100% { box-shadow: 0 14px 36px rgba(16,14,64,.1), 0 0 0 3px rgba(78,194,110,.12); } 50% { box-shadow: 0 16px 40px rgba(16,14,64,.12), 0 0 0 5px rgba(78,194,110,.2); } }
+		@keyframes spin { to { transform: rotate(360deg); } }
+		@keyframes draw-check { to { stroke-dashoffset: 0; } }
+		@keyframes sparkle { 0% { opacity: 0; transform: scale(.2) rotate(0); } 45% { opacity: 1; } 100% { opacity: 0; transform: scale(1.5) rotate(75deg); } }
+		@keyframes phone-arrive { from { opacity: 0; transform: translateY(34px) rotate(2deg) scale(.96); } to { opacity: 1; transform: translateY(0) rotate(2deg) scale(1); } }
+		@keyframes wave-shift { from { d: path("M0 42 C240 100 480 100 720 60 C960 20 1200 8 1440 54 L1440 100 L0 100 Z"); } to { d: path("M0 55 C240 10 480 18 720 62 C960 100 1200 96 1440 40 L1440 100 L0 100 Z"); } }
+		@media (max-width: 760px) {
+			.signup[data-state="success"] { min-height: 92px; }
+			.signup__success { padding-inline: 16px; }
+			.signup__check { width: 48px; height: 48px; }
+			.step__visual img { width: min(55%, 190px); }
+		}
+		@media (prefers-reduced-motion: reduce) {
+			.signup__row:focus-within, .hero__phone, .hero__visual img, .hero__float, .hero__wave path, .signup__spinner, .signup__success.is-visible .signup__check path, .signup__success.is-visible .signup__spark { animation: none !important; }
+			.has-reveal .benefit-card, .has-reveal .step__copy, .has-reveal .step__visual { opacity: 1; transform: none; transition: none; }
+		}
 	</style>
 </head>
 <body>
@@ -285,13 +357,23 @@
 					<h1 id="hero-title">Que las cuentas no se metan <span>entre amigos</span></h1>
 					<p class="hero__lead">El plan es pasarla bien, no perseguir pagos. Organiza los gastos del grupo y deja que UniSplit mantenga todo claro.</p>
 					<form class="signup" id="subscribe-form" novalidate>
-						<label class="signup__label" for="email">Obtén acceso anticipado</label>
-						<div class="signup__row">
-							<input id="email" name="email" type="email" placeholder="Tu correo electrónico" autocomplete="email" inputmode="email" maxlength="254" required>
-							<button id="submit-button" type="submit">Unirme a la lista de espera</button>
+						<div class="signup__content" id="signup-content">
+							<label class="signup__label" for="email">Obtén acceso anticipado</label>
+							<div class="signup__row">
+								<input id="email" name="email" type="email" placeholder="Tu correo electrónico" autocomplete="email" inputmode="email" maxlength="254" required>
+								<button id="submit-button" type="submit">
+									<span class="signup__button-label">Unirme a la lista de espera</span>
+									<span class="signup__spinner" aria-hidden="true"></span>
+								</button>
+							</div>
+							<p class="signup__note">Déjanos tu correo y te avisamos cuando puedas entrar. Sin spam.</p>
+							<p class="signup__status" id="form-status" role="status" aria-live="polite"></p>
 						</div>
-						<p class="signup__note">Déjanos tu correo y te avisamos cuando puedas entrar. Sin spam.</p>
-						<p class="signup__status" id="form-status" role="status" aria-live="polite"></p>
+						<div class="signup__success" id="signup-success" role="status" aria-live="polite" hidden>
+							<span class="signup__spark" aria-hidden="true"></span><span class="signup__spark" aria-hidden="true"></span><span class="signup__spark" aria-hidden="true"></span><span class="signup__spark" aria-hidden="true"></span>
+							<span class="signup__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"></path></svg></span>
+							<span class="signup__success-copy"><strong>¡Ya estás en la lista!</strong><span>Te avisaremos cuando UniSplit esté listo.</span></span>
+						</div>
 					</form>
 					<div class="hero__social" aria-label="Más de 500 grupos ya organizan sus gastos">
 						<div class="hero__avatars" aria-hidden="true">
@@ -305,7 +387,9 @@
 					<span class="hero__float hero__float--receipt" aria-hidden="true">🧾</span>
 					<span class="hero__float hero__float--money" aria-hidden="true">💸</span>
 					<span class="hero__float hero__float--smile" aria-hidden="true">😎</span>
-					<img src="assets/app-balances-480.webp" srcset="assets/app-balances-480.webp 480w, assets/app-balances-640.webp 640w" sizes="(max-width: 760px) 62vw, 340px" alt="Pantalla de balances de UniSplit con transferencias pendientes y gastos del grupo" fetchpriority="high">
+					<div class="hero__phone">
+						<img src="assets/app-balances-480.webp" srcset="assets/app-balances-480.webp 480w, assets/app-balances-640.webp 640w" sizes="(max-width: 760px) 62vw, 340px" alt="Pantalla de balances de UniSplit con transferencias pendientes y gastos del grupo" fetchpriority="high">
+					</div>
 				</div>
 			</div>
 			<svg class="hero__wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 42 C240 100 480 100 720 60 C960 20 1200 8 1440 54 L1440 100 L0 100 Z"></path></svg>
@@ -387,7 +471,10 @@
 		const form = document.querySelector("#subscribe-form");
 		const emailInput = document.querySelector("#email");
 		const submitButton = document.querySelector("#submit-button");
+		const submitLabel = submitButton.querySelector(".signup__button-label");
 		const status = document.querySelector("#form-status");
+		const signupContent = document.querySelector("#signup-content");
+		const signupSuccess = document.querySelector("#signup-success");
 
 		form.addEventListener("submit", async (event) => {
 			event.preventDefault();
@@ -417,13 +504,21 @@
 			}
 
 			submitButton.disabled = true;
-			submitButton.textContent = "Enviando...";
+			form.dataset.state = "loading";
+			submitLabel.textContent = "Enviando...";
 			form.setAttribute("aria-busy", "true");
 
 			try {
-				await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, { email }, { publicKey: EMAILJS_PUBLIC_KEY });
-				status.textContent = "¡Listo! Revisa tu bandeja de entrada.";
-				status.dataset.state = "success";
+				await Promise.all([
+					window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, { email }, { publicKey: EMAILJS_PUBLIC_KEY }),
+					new Promise((resolve) => window.setTimeout(resolve, 1000))
+				]);
+				form.dataset.state = "success";
+				signupSuccess.hidden = false;
+				window.requestAnimationFrame(() => signupSuccess.classList.add("is-visible"));
+				window.setTimeout(() => {
+					signupContent.hidden = true;
+				}, 350);
 				form.reset();
 			} catch (error) {
 				console.error("Error al procesar la suscripción con EmailJS:", error);
@@ -431,10 +526,25 @@
 				status.dataset.state = "error";
 			} finally {
 				submitButton.disabled = false;
-				submitButton.textContent = "Unirme a la lista de espera";
+				submitLabel.textContent = "Unirme a la lista de espera";
 				form.removeAttribute("aria-busy");
+				if (form.dataset.state !== "success") form.removeAttribute("data-state");
 			}
 		});
+
+		if ("IntersectionObserver" in window) {
+			const revealTargets = document.querySelectorAll(".benefit-card, .step__copy, .step__visual");
+			document.documentElement.classList.add("has-reveal");
+			const revealObserver = new IntersectionObserver((entries, observer) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("is-visible");
+						observer.unobserve(entry.target);
+					}
+				});
+			}, { threshold: 0.15 });
+			revealTargets.forEach((target) => revealObserver.observe(target));
+		}
 	</script>
 </body>
 </html>
